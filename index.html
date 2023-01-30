@@ -35,7 +35,7 @@
     function drawDonationsChart() {
       var queryString = encodeURIComponent('SELECT A, B LIMIT 100');
       var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/1OzwjiMlKsctWfbvHj7QOLkEjVLJxkVvamzAsAqUXtrA/gviz/tq?gid=0&headers=1&tq=' + queryString);
+          'https://docs.google.com/spreadsheets/d/1OzwjiMlKsctWfbvHj7QOLkEjVLJxkVvamzAsAqUXtrA/gviz/tq?gid=694135870&headers=1&tq=' + queryString);
       query.send(handleDonationsQueryResponse);
     }
     function handleDonationsQueryResponse(response) {
@@ -44,11 +44,10 @@
         return;
       }
       var data = response.getDataTable();
-      var chart = new google.visualization.ColumnChart(document.getElementById('donations_chart_div'));
+      var chart = new google.visualization.BarChart(document.getElementById('donations_chart_div'));
       var options = {
           title: 'Collected funds',
           height: 400,
-          bars: 'horizontal',
           animation: {startup: true,
                      duration: 2000,
                      easing: 'out'}
