@@ -8,7 +8,7 @@
       google.charts.setOnLoadCallback(drawGID);
 
     function drawGID() {
-      var queryString = encodeURIComponent('SELECT A, H, O, Q, R, U LIMIT 5 OFFSET 8');
+      var queryString = encodeURIComponent('SELECT A, B, C, D LIMIT 100');
 
       var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1OzwjiMlKsctWfbvHj7QOLkEjVLJxkVvamzAsAqUXtrA/gviz/tq?gid=0&headers=1&tq=' + queryString);
