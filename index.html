@@ -26,7 +26,9 @@
       var options = {
           title: 'Tacmed delivery over time',
           height: 400,
-          animation: {"startup": true}
+          animation: {startup: true,
+                     duration: 1000,
+                     easing: 'out'}
         };
       chart.draw(data, options);
     }
