@@ -11,9 +11,9 @@
       var queryString = encodeURIComponent('SELECT A, B, C, D LIMIT 100');
       var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1OzwjiMlKsctWfbvHj7QOLkEjVLJxkVvamzAsAqUXtrA/gviz/tq?gid=0&headers=1&tq=' + queryString);
-      query.send(handleQueryResponse);
+      query.send(handleDeliveriesQueryResponse);
     }
-    function handleQueryResponse(response) {
+    function handleDeliveriesQueryResponse(response) {
       if (response.isError()) {
         alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         return;
@@ -36,9 +36,9 @@
       var queryString = encodeURIComponent('SELECT A, B LIMIT 100');
       var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1OzwjiMlKsctWfbvHj7QOLkEjVLJxkVvamzAsAqUXtrA/gviz/tq?gid=0&headers=1&tq=' + queryString);
-      query.send(handleQueryResponse);
+      query.send(handleDonationsQueryResponse);
     }
-    function handleQueryResponse(response) {
+    function handleDonationsQueryResponse(response) {
       if (response.isError()) {
         alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         return;
