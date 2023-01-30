@@ -23,7 +23,12 @@
 
       var data = response.getDataTable();
       var chart = new google.visualization.ColumnChart(document.getElementById('deliveries_chart_div'));
-      chart.draw(data, { height: 400 });
+      var options = {
+          title: 'Tacmed delivery over time',
+          height: 400,
+          animation: {"startup": true}
+        };
+      chart.draw(data, options);
     }
     </script>  
 </head>
