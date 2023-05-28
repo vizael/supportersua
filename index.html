@@ -12,7 +12,7 @@
       google.charts.setOnLoadCallback(drawDeliveriesChart);
 
     function drawDeliveriesChart() {
-      var queryString = encodeURIComponent('SELECT A, B LIMIT 100');
+      var queryString = encodeURIComponent('SELECT A, B LIMIT 50');
       var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/10dDxCrIBO3qqlehe7AiQ0YjqQAKAM8jNGF-UhsGzOIU/gviz/tq?gid=0&headers=1&tq=' + queryString);
       query.send(handleDeliveriesQueryResponse);
@@ -23,38 +23,14 @@
         return;
       }
       var data = response.getDataTable();
-      var chart = new google.visualization.ColumnChart(document.getElementById('deliveries_chart_div'));
-      var options = {
-          title: 'Tacmed delivery over time',
-          height: 400,
-          animation: {startup: true,
-                     duration: 2000,
-                     easing: 'out'}
-        };
-      chart.draw(data, options);
-    }
-        
-    google.charts.setOnLoadCallback(drawDonationsChart);
-
-    function drawDonationsChart() {
-      var queryString = encodeURIComponent('SELECT A, B LIMIT 100');
-      var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/10dDxCrIBO3qqlehe7AiQ0YjqQAKAM8jNGF-UhsGzOIU/gviz/tq?gid=0&headers=1&tq=' + queryString);
-      query.send(handleDonationsQueryResponse);
-    }
-    function handleDonationsQueryResponse(response) {
-      if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
-      }
-      var data = response.getDataTable();
       var chart = new google.visualization.BarChart(document.getElementById('donations_chart_div'));
       var options = {
-          title: 'Collected funds',
+          title: 'Tacmed delivery',
           height: 400,
           animation: {startup: true,
-                     duration: 2000,
-                     easing: 'out'}
+                     duration: 1000,
+                     easing: 'out'},
+          legend: 'none'
         };
       chart.draw(data, options);
     }
@@ -63,6 +39,5 @@
 
 <body>
 <div id="deliveries_chart_div" style="width: 100%; height: 500px;"></div>
-<div id="donations_chart_div" style="width: 100%; height: 500px;"></div>
 </body>
 </html>
