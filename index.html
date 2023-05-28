@@ -12,7 +12,7 @@
       google.charts.setOnLoadCallback(drawDeliveriesChart);
 
     function drawDeliveriesChart() {
-      var queryString = encodeURIComponent('SELECT A, B LIMIT 50');
+      var queryString = encodeURIComponent('SELECT A, B LIMIT 20');
       var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/10dDxCrIBO3qqlehe7AiQ0YjqQAKAM8jNGF-UhsGzOIU/gviz/tq?gid=0&headers=1&tq=' + queryString);
       query.send(handleDeliveriesQueryResponse);
@@ -30,7 +30,8 @@
           animation: {startup: true,
                      duration: 1000,
                      easing: 'out'},
-          legend: 'none'
+          legend: 'none',
+          hAxis: { textPosition: 'none' }
         };
       chart.draw(data, options);
     }
