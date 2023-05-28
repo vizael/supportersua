@@ -23,13 +23,6 @@
         alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         return;
       }
-        
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" }]);
       var data = response.getDataTable();
       var chart = new google.visualization.BarChart(document.getElementById('deliveries_chart_div'));
       var options = {
@@ -43,7 +36,7 @@
                    }
                  }
         };
-      chart.draw(view, data, options);
+      chart.draw(data, options);
     }
     </script>  
 </head>
